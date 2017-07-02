@@ -1,6 +1,24 @@
 var images = ['old','young','nature']
-var count = images.length
+var files = []
 
+function loadFiles(){
+  var image = images.shift()
+  if (!image) {
+    console.log('alle filer hentet', files)
+    return
+  }
+  var img = new Image()
+  img.onload = function () {
+    loadFiles()
+  }
+  img.src = image + '.jpg'
+  files.push(img)
+  }
+
+loadFiles()
+
+/*
+var count = images.length
 images = images.map(function (image){
   var img =  new Image()
   img.onload = function () {
@@ -18,6 +36,7 @@ function next () {
     })
   }
 }
+*/
 
 /*
 var fs = require('fs')
