@@ -5,6 +5,9 @@ function loadFiles(){
   var image = images.shift()
   if (!image) {
     console.log('alle filer hentet', files)
+    files.forEach (function (image){
+      document.body.appendChild(image)
+    })
     return
   }
   var img = new Image()
